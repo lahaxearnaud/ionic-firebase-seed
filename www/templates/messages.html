@@ -2,18 +2,15 @@
   <ion-content>
     <ion-list show-delete="shouldShowDelete">
       <ion-item ng-repeat="(id, message) in messages | orderBy:time" >
-      	<ion-delete-button class="ion-minus-circled" ng-click="delete(id)"></ion-delete-button>
-        {{ message.message }}
+      	<ion-option-button class="button-positive">Profile</ion-option-button>
+    	<ion-option-button class="button-assertive" ng-click="delete(id)">Delete</ion-option-button>
+        {{ message.email }}: {{ message.message }}
       </ion-item>
 
 		<ion-item>
 			<input type="text" ng-model="message.message" ng-enter="save()">
+			<a id="anchorForm"/>
 		</ion-item>
     </ion-list>
-
-    <ion-toggle ng-model="shouldShowDelete">
-		delete
-	</ion-toggle>
-
   </ion-content>
 </ion-view>
