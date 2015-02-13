@@ -1,0 +1,19 @@
+<ion-view view-title="Messages">
+  <ion-content>
+    <ion-list show-delete="shouldShowDelete">
+      <ion-item ng-repeat="(id, message) in messages | orderBy:time" >
+      	<ion-delete-button class="ion-minus-circled" ng-click="delete(id)"></ion-delete-button>
+        {{ message.message }}
+      </ion-item>
+
+		<ion-item>
+			<input type="text" ng-model="message.message" ng-enter="save()">
+		</ion-item>
+    </ion-list>
+
+    <ion-toggle ng-model="shouldShowDelete">
+		delete
+	</ion-toggle>
+
+  </ion-content>
+</ion-view>
